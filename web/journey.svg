@@ -1,0 +1,41 @@
+<svg class="journey-scene" viewBox="0 0 1200 450" role="img" aria-labelledby="journey-title journey-description">
+  <title id="journey-title">Pusulalı yolcu</title>
+  <desc id="journey-description">Bir adam yol ayrımına yürür, elindeki pusulayı kontrol eder, arkasına bakar ve yürümeye devam eder.</desc>
+  <defs>
+    <pattern id="engraving" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(24)"><path d="M0 0V7" stroke="currentColor" stroke-width=".7" opacity=".28"/></pattern>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <g opacity=".32" stroke-width="1">
+      <path d="M40 289Q157 217 270 251T496 263Q615 195 746 248T1160 250"/>
+      <path d="M55 297Q177 234 280 267T500 279Q627 216 750 263T1150 267"/>
+      <path d="M85 301Q199 254 317 284M700 280Q882 240 1130 288"/>
+      <path d="M73 282l15-45 18 40M83 254l13-19M86 277l-15-18M1090 278l15-53 20 53M1098 257l16-23"/>
+    </g>
+    <g stroke-width="1.3" opacity=".65">
+      <path d="M20 387Q260 348 485 356T855 357Q1000 352 1180 365"/>
+      <path d="M20 405Q275 371 487 378T850 378Q992 367 1180 387"/>
+      <path d="M690 356Q720 316 825 280M713 378Q768 328 854 299"/>
+      <path d="M180 380l20-2m62-10 15-1m89-3 24-1m451 12 27-3m68 1 17-2m104 3 21-1"/>
+      <path d="M150 348l-3-17m3 17 6-13m298 19-3-21m3 21 7-15m497 11 3-20m-3 20-7-13"/>
+    </g>
+    <g transform="translate(787 270)" stroke-width="1.7">
+      <path d="M0 0v82m-4 0h9M-20 0h43l9 8-9 8h-43zm-7 24h37v16h-37l-8-8z" fill="var(--paper)"/>
+      <path d="M-15 7h32m-27 25h14" stroke-width=".8"/>
+    </g>
+  </g>
+  <g id="traveler" transform="translate(300 360)" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0" cy="5" rx="32" ry="4" fill="currentColor" opacity=".12" stroke="none"/>
+    <g id="traveler-body">
+      <g id="back-leg" transform="rotate(16 0 -66)"><path d="M-7-71L-11-36-7-5 6-4 4-37 10-65" fill="var(--paper)"/><path d="M-7-71L-11-36-7-5 6-4 4-37 10-65" fill="url(#engraving)"/><path d="M-8-5L-10 0H10L8-5Z" fill="currentColor"/></g>
+      <g id="front-leg" transform="rotate(-16 0 -66)"><path d="M0-69L8-37 13-5 25-5 20-39 14-71" fill="var(--paper)"/><path d="M0-69L8-37 13-5 25-5 20-39 14-71" fill="url(#engraving)"/><path d="M13-5L12 0H33Q35-4 25-5Z" fill="currentColor"/></g>
+      <path d="M-12-120Q0-127 15-117L24-72Q8-62-15-70L-18-102Z" fill="var(--paper)"/>
+      <path d="M-12-120Q0-127 15-117L24-72Q8-62-15-70L-18-102Z" fill="url(#engraving)"/>
+      <path d="M-2-117L4-88 10-73M7-116L13-98M-13-85L-2-84" fill="none" stroke-width="1"/>
+      <path d="M-17-111Q-29-105-29-87L-17-88" fill="var(--paper)"/>
+      <path d="M-27-105l6 3m-8 5 9 3" fill="none" stroke-width=".8"/>
+      <g id="compass-arm"><path d="M10-112Q20-104 25-99L40-107 45-99Q28-86 19-91L4-105" fill="var(--paper)"/><path d="M40-107q7-5 10 2l-5 6" fill="var(--paper)"/><circle cx="50" cy="-108" r="8" fill="var(--paper)" stroke-width="1.4"/><path d="M50-114l3 6-3 6-3-6z" fill="currentColor" stroke-width=".5"/><path d="M43-108h14" stroke-width=".6"/></g>
+      <g id="traveler-head"><path d="M-4-121l1-12 13-1 2 15" fill="var(--paper)"/><path d="M-8-147Q-5-162 9-158L17-147 22-143 18-139 17-130Q6-124-3-137Z" fill="var(--paper)"/><path d="M-12-147Q1-156 23-148L24-145Q4-141-13-143ZM-7-149l2-15q8-7 19 0l3 16" fill="var(--paper)"/><path d="M-5-158l19 1M7-139l5 1M14-146h1" fill="none" stroke-width="1"/></g>
+    </g>
+  </g>
+  <text id="journey-phase" x="600" y="435" text-anchor="middle">Yol bazen durup düşünmeyi gerektirir.</text>
+</svg>

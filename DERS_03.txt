@@ -1,0 +1,72 @@
+KEŞKE — Gerçek satış verisini tanıma
+
+Bu dersin kodu: satis_analizi.py
+Çalıştırma: .\keske\.venv\Scripts\python.exe keske/satis_analizi.py
+
+1. Veri nedir?
+M5, Walmart mağazalarındaki anonim ürünlerin günlük satış miktarlarını içerir.
+Kaynak arşivi: https://zenodo.org/records/10203108
+Orijinal yarışma: https://www.kaggle.com/competitions/m5-forecasting-accuracy
+İndirdiğimiz dosyaların MD5 değerleri arşivdeki değerlerle karşılaştırılıyor.
+Bu, indirme bütünlüğü kontrolüdür; istatistiksel doğruluk kanıtı değildir.
+
+2. Zaman serisi mi, panel mi?
+Tek ürün + tek mağaza + birçok gün: zaman serisi.
+Birçok ürün-mağaza çifti + birçok gün: panel yapısı.
+Geniş tablodaki her satır bir ürün-mağazadır; d_1, d_2... günlük satışlardır.
+Boş hücre ve tekrar eden anahtar kontrolü yapıyoruz. Dengeli gözlem ızgarası
+ürünün her gün stokta olduğunu göstermez. Sıfır satışın nedenini bu veriyle
+kesin olarak bilemeyiz. Fiyatın eksik olması da otomatik sıfır fiyat değildir.
+
+3. Neden son 56 günü ayırdık?
+İlk dönem: eğitim. Sonraki 28 gün: doğrulama. Son 28 gün: test.
+28 günlük dönemler dört tam haftayı kapsayan ilk deney tasarımıdır.
+Grafik, testler ve VIF eğitim döneminde hesaplanır.
+Ürün seçimi FOODS_3_090 / CA_1 olarak sonuçlar görülmeden sabitlendi.
+İlk çalışma tüm ürünler için başarı iddiası taşımaz.
+
+4. Otokorelasyon
+Bugünün satışı geçmiş satışlarla ilişkili mi? ACF bunu gecikmelere göre
+özetler. 7 günlük gecikme aynı haftanın gününü karşılaştırır. Yalnızca ACF
+grafiğine bakarak nedensellik veya en iyi model sonucuna varamayız.
+
+5. Mevsimsellik
+STL period=7: haftalık bileşen, trend ve kalan bileşen ayrılır.
+robust=True: uç gözlemlerin ayrıştırmaya etkisini azaltır.
+Haftalık güç = max(0, 1 - Var(kalan)/Var(haftalık + kalan)).
+Bu değer hipotez testinin p-değeri değildir. Yıllık mevsimselliği ölçmez.
+Dayanak: https://otexts.com/fpp3/stlfeatures.html
+
+6. Birim kök ve durağanlık
+ADF sıfır hipotezi: birim kök vardır. Küçük p, bu hipoteze karşı kanıttır.
+KPSS sıfır hipotezi: seçilen sabit/trend çevresinde durağanlık vardır.
+c: sabit; ct: sabit ve doğrusal trend. İki belirtimi de raporluyoruz.
+ADF autolag=AIC; KPSS nlags=auto. Seçilen gecikmeler raporda bulunur.
+KPSS tablolarının dışındaki p-değerleri sınır değerdir; uyarılar saklanır.
+İki test farklı sonuç verebilir. Tek p-değeriyle otomatik fark almıyoruz.
+Dayanak: https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.adfuller.html
+https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.kpss.html
+
+7. VIF neye uygulanıyor?
+Regresyonun değişkenleri: dünün satışı, 7 gün önceki satış, önceki 7 günün
+ortalaması ve haftanın günü göstergeleri. Bir gün referans olarak çıkarılır.
+VIF, bu açıklayıcıların birbirleriyle doğrusal ilişkisini inceler.
+Satış serisine tek başına VIF uygulanmaz. Yüksek VIF otomatik silme değildir.
+Dayanak: https://www.statsmodels.org/stable/generated/statsmodels.stats.outliers_influence.variance_inflation_factor.html
+
+8. İlk tahmin karşılaştırması
+Mevsimsel naive: 7 gün önceki satış.
+Ortalama: önceki 28 günün ortalaması.
+Regresyon: yukarıdaki geçmiş ve takvim değişkenleriyle OLS.
+Her tahmin bir gün ileridir. Önceki günün gerçek satışı öğrenilince sonraki
+gün için kullanılabilir. Bu, 28 günü bir kerede tahmin etmek değildir.
+Regresyon katsayıları eğitimde öğrenilir ve test sırasında değiştirilmez.
+Negatif regresyon tahminleri sıfıra kırpılır. Miktarlar yuvarlanmaz: bu aşama
+tahmin değerlendirmesidir; tam sayı sipariş kararı sonraki katmandadır.
+MAE: mutlak tahmin hatalarının ortalaması, birimi üründür.
+Model doğrulama MAE'siyle seçilir; test sonucu sonra raporlanır.
+
+9. Henüz yapmadığımız karar karşılaştırması
+M5 alış maliyetini ve kalan ürün değerini vermez. Bunları varsayım olarak
+açıkça tanımlayıp farklı aralıklarda deneyeceğiz. Satış geçmişi gerçek;
+hesaplanan kârlar maliyet varsayımlarına bağlı simülasyon olacak.

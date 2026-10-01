@@ -1,0 +1,50 @@
+KEŞKE — Son teknik denetim ve görüşmeye hazırlık
+
+1. Hata bağımlılığı
+Testten önceki 56 günlük hatalarda Ljung–Box 7 ve 14 gecikme hesaplandı.
+Yedi gecikmede 5/30, 14 gecikmede 4/30 havuz için nominal p<0,05.
+Büyük p hata bağımsızlığını kanıtlamaz. Çoklu test düzeltmesi yok; bu bir
+tarama, model kabul belgesi değil. model_df=0: model ayrı eğitimde sabit.
+
+2. Değişen hata büyüklüğü
+56 hatanın ilk ve son yarıları medyan merkezli Levene/Brown–Forsythe ile
+karşılaştırıldı. 2/30 havuzda nominal p<0,05. Seri bağımlılığı bu testin
+nominal p-değerini etkileyebilir. Her yerde sabit varyans kabul edilemez.
+
+3. Pencere duyarlılığı
+Eğitim: 182/364/728 gün. Hata kalibrasyonu: 28/56/84 gün.
+Model seçimi 28 ve test 28 gün kaldı. Alternatif üst sınırı hep test öncesi
+son 364 gün: pencereyle kapasiteyi birlikte değiştirmedik.
+30 ürün-dönem × 9 pencere × 12 maliyet = 3.240 kıyas.
+p=100 c=50 s=12,5 altında dağılımlı kararın daha yüksek kâr verdiği deneme
+sayısı 10–18 arasında değişti. Bu ayarlara bakıp en iyisini yeni testte
+doğrulanmış gibi seçmedik; başlangıç ayarı korundu.
+
+4. Ne düzeldi?
+Tam eğitim penceresi yoksa işlem duruyor. Sonlu olmayan veya boş sayısal
+girdiler reddediliyor. Kaynaklar güncel. Tek komutla analiz/site üretiliyor.
+Ham veri, yerel ortam ve kişisel dosyalar GitHub paketine alınmıyor.
+
+5. Ne iddia etmiyoruz?
+Hatalar iid, stok kararı üretime hazır veya yeni yöntem her zaman üstün
+değil. Simpleks/ARIMA/panel regresyon kullanmadık. İlk seri tanıları bütün
+ürünlere genellenmez. Test başarısı varsayımları ispatlamaz.
+
+6. Onur benzeri sorular için hazırlık
+Amaç fonksiyonu nedir? Beklenen kâr; OLS eğitiminde ise kare hata.
+Karar değişkeni nedir? Sipariş miktarı q. Model katsayıları ayrı eğitimde
+öğrenilen parametrelerdir; maliyet oranları duyarlılık ayarlarıdır.
+Kısıt nedir? q tam sayı, 0≤q≤test öncesi geçmişten belirlenen üst sınır.
+Çözücü nedir? Küçük senaryo tablolarında alternatif taraması; newsvendor
+beklenen kârında ampirik kritik kantil. Simpleks veya QP yok.
+Hangi veri karar anında bilinir? Önceki satışlar, haftanın günü, varsayılan
+maliyetler, eğitimde sabitlenen model ve test öncesi hata havuzu.
+En önemli sınır? Satış talebin tamamı değil; hata havuzu bağımlılık ve
+koşullu varyansı bütünüyle modellemiyor. Test dönemleri önceden incelendi.
+
+7. Senin öğrenmen için elle yapılacak görev
+p=100, c=50, s=12,5; olası satışlar 20,40,60; eşit olasılıklar.
+q=20,40,60 için üç kârı ve beklenen kârı hesapla.
+Kritik oran 4/7: ampirik kantil q=40. Tarama aynı sonucu veriyor mu?
+Sonra c=80 yap: kritik oran düşüyor; sipariş neden azalıyor?
+Bu tek örneği açıklayabilmek görüşme metnini ezberlemekten daha önemlidir.

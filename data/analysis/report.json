@@ -1,0 +1,79 @@
+{
+  "audit": {
+    "units": 30490,
+    "days_per_unit": 1913,
+    "missing_sales_cells": 0,
+    "observed_grid_balanced": true,
+    "note": "Dengeli kayıt ızgarası, her ürünün her gün satışta veya stokta olduğunu göstermez.",
+    "selected_item": "FOODS_3_090",
+    "selected_store": "CA_1",
+    "missing_price_days": 0
+  },
+  "training_days": 1857,
+  "training_end": "2016-02-28",
+  "validation_days": 28,
+  "test_days": 28,
+  "diagnostics": {
+    "tests": {
+      "c": {
+        "adf_statistic": -3.993570636886653,
+        "adf_p": 0.0014445539954430551,
+        "adf_lags": 23,
+        "kpss_statistic": 0.5734216907886464,
+        "kpss_p": 0.025130249822376938,
+        "kpss_lags": 25,
+        "kpss_warnings": []
+      },
+      "ct": {
+        "adf_statistic": -4.01468088891287,
+        "adf_p": 0.008380344236831956,
+        "adf_lags": 23,
+        "kpss_statistic": 0.5339247408229456,
+        "kpss_p": 0.01,
+        "kpss_lags": 25,
+        "kpss_warnings": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is smaller than the p-value returned."
+        ]
+      }
+    },
+    "acf_lag_1": 0.7306327039266532,
+    "acf_lag_7": 0.6243241097279467,
+    "weekly_stl_strength": 0.2951696869514143,
+    "zero_sales_fraction": 0.2525578890683899
+  },
+  "comparison": {
+    "mae": {
+      "seasonal_naive": {
+        "validation_mae": 15.0,
+        "test_mae": 18.714285714285715
+      },
+      "past_28_mean": {
+        "validation_mae": 16.74234693877551,
+        "test_mae": 17.913265306122447
+      },
+      "lag_regression": {
+        "validation_mae": 11.990321640981835,
+        "test_mae": 15.491181970500747
+      }
+    },
+    "selected_on_validation": "lag_regression",
+    "vif_training_only": {
+      "lag_1": 3.2028500048001884,
+      "lag_7": 3.199169379629371,
+      "past_7_mean": 5.718304393993901,
+      "weekday_1": 1.8242474138233753,
+      "weekday_2": 1.8445240868237769,
+      "weekday_3": 1.8276061742568201,
+      "weekday_4": 1.8297630586863796,
+      "weekday_5": 1.8605138687619265,
+      "weekday_6": 1.8369679314096152
+    },
+    "protocol": "Rolling one-day-ahead; coefficients fitted on training only."
+  },
+  "limitations": [
+    "Observed sales are not uncensored demand.",
+    "Costs are not provided by M5; decision profits will require explicit assumptions.",
+    "Weekly STL does not test annual seasonality.",
+    "ADF/KPSS alone do not select a forecasting model."
+  ]
+}

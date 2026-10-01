@@ -1,0 +1,49 @@
+KEŞKE — İlk dersin tarihsel teknik dayanak notu
+
+Bu dosya yalnız ilk kurgusal 3x3 senaryonun kaynaklarını anlatır.
+Projenin güncel bütün yöntemleri, gerçek veri ve kritik kantil için
+SOURCES.md, README.md ve DERS_07.txt okunmalıdır. Aşağıdaki "henüz yok"
+ifadeleri ilk dersin tarihsel durumudur; güncel proje durumu değildir.
+
+İlk sürüm belirli bir araştırma makalesinden uyarlanmadı. Standart karar
+analizi kurallarıyla yazıldı. Aşağıdaki kaynaklarla sonradan karşılaştırıldı.
+Henüz özgün bir algoritma veya gerçek işletme performansı iddiası yoktur.
+
+1. MIT OpenCourseWare, 15.772J D-Lab: Supply Chains, Fall 2014.
+   Newsvendor Inventory Problem (tek dönemlik stok problemi).
+   https://ocw.mit.edu/courses/15-772j-d-lab-supply-chains-fall-2014/6952be57b43aa185119c6f114908bcc5_MIT15_772JF14_Newsboy.pdf
+   Dayanak: Satış fiyatı, birim maliyet, belirsiz talep ve kalan ürün değeri.
+   Bizim uygulama: Üç üretim alternatifi ve üç talep durumunun doğrudan
+   karşılaştırılması. Sürekli dağılım tahmini veya kritik oran çözümü yok.
+
+2. Florida Gulf Coast University, Module One Notes: Decision Analysis.
+   https://ruby.fgcu.edu/Courses/ekirche/MSci/modules/6603/m1_notes.htm
+   Dayanak: Kâr tablosu, maximax, maximin, minimax pişmanlık,
+   beklenen parasal değer ve kusursuz bilginin beklenen değeri (EVPI).
+   Bunlar farklı seçim ölçütleridir; biri her durumda üstün değildir.
+
+Formüller:
+Kâr(q,d) = fiyat*min(q,d) + kalan_değer*max(q-d,0) - maliyet*q
+Pişmanlık(q,d) = aynı d için alternatifler içindeki en iyi kâr - Kâr(q,d)
+Beklenen kâr(q) = toplam_d [olasılık(d)*Kâr(q,d)]
+EVPI = toplam_d [olasılık(d)*en_iyi_kâr(d)] - en_iyi_beklenen_kâr
+
+Doğrulama katmanları:
+1. Tanımların ders kaynaklarıyla uyumu.
+2. Elle hesaplanan kâr tablosu ile kod çıktısının eşitliği.
+3. Sıfır talep, kapasite üstü talep, eşit skor ve olasılık kontrolü testleri.
+4. Gerçeklik geçerliliği: Henüz yok. Gerçek veri, uzman değerlendirmesi ve
+   geçmiş dönem doğrulaması olmadan gerçek işletme başarısı iddia edemeyiz.
+
+Varsayımlar: Tek ürün, tek dönem, bilinen sabit birim fiyat ve maliyet,
+kalan ürünün dönem sonunda satılması, karşılanamayan talep için ceza yok,
+borç/sabit gider/gelecek döneme stok devri yok. Beklenen parasal değer
+risk nötr ölçüttür. Psikolojik pişmanlık ölçmüyoruz.
+
+Parametrelerin kaynağı: 100/200/300 miktarlar, 60/30/10 fiyatlar ve
+%30/%40/%30 olasılıklar projeye ait kurgusal eğitim değerleridir.
+Kaynak makalelerden alınmış veya veri üzerinde tahmin edilmiş değillerdir.
+
+Kod tarzı: Kullanıcının sağladığı Miuul Persona ve FLO RFM örneklerindeki
+iş problemi -> değişken açıklamaları -> görevler -> ara çıktı -> yorum akışı.
+Bu benzerlik bir Vahit Keskin onayı veya resmî Miuul standardı iddiası değildir.

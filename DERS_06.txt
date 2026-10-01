@@ -1,0 +1,67 @@
+KEŞKE — Tahmini maliyete göre siparişe dönüştürmek
+
+Kod: tahminden_karara.py. Sonuç: data/analysis/forecast_decisions.json
+Siteye aktarma: publish_forecast_decisions.py, sonra build.py.
+
+1. Neden tahmin kadar sipariş vermek yeterli olmayabilir?
+Tahmin, olası satışın bir özeti. Fazla siparişin birim zararı c-s; eksik
+siparişin kaçırdığı katkı p-c. Bu iki bedel farklıysa miktar tahminin
+üstünde veya altında olabilir. İşletmenin maliyeti karara katılmalıdır.
+
+2. Geçmişin dört ayrı bölümü
+Her ürün ve test dönemi için:
+- Önce 364 günle regresyon katsayıları öğrenilir.
+- Sonraki 28 günde üç adayın MAE'si karşılaştırılır ve biri seçilir.
+- Sonraki ayrı 56 günde seçilen modelin bir gün ileri hataları kaydedilir.
+- Sonraki 28 gün testtir; geçmiş üç aşamayı etkilemez.
+Üç aday: geçen haftanın aynı günü, önceki 28 gün ortalaması, gecikmeler
+ve haftanın günü göstergeleriyle OLS regresyonu. Model her ürün-dönemde
+yeniden seçilir; her yerde regresyon seçileceği varsayılmaz.
+Model MAE ile seçiliyor. Kâr için model seçimi yaptığımızı iddia etmiyoruz.
+
+3. Günlük hata nasıl çıkarılıyor?
+Hata = gerçekleşmiş satış - o gün önceden yapılmış tahmin.
+Örneğin tahmin 40 ve satış 47 ise hata +7.
+Testte bugünün tahmini 50 ise aynı hata 57 satışlık bir senaryo üretir.
+56 geçmiş hatayı ayrı ayrı ekleyerek 56 eşit olasılıklı senaryo oluştururuz.
+Negatif senaryolar 0'a kırpılır; .5 yukarı olacak şekilde tam sayıya yuvarlanır.
+Hatalar testte güncellenmez. Bugün veya yarın gerçekleşecek satış kullanılmaz.
+
+4. Sipariş hangi teknikle seçiliyor?
+Beklenen kârı en büyük yapan newsvendor miktarı.
+Kritik oran = (p-c)/(p-s); ampirik dağılımın bu oranındaki en küçük kantili.
+Örnek p=100, c=50, s=12,5 → oran 50/87,5 = 0,5714.
+Yani 56 senaryonun yaklaşık %57,14 kantiline göre miktar seçilir.
+np.quantile(method='inverted_cdf') ampirik dağılımın tersini kullanır;
+kantil ara değerlerini doğrusal enterpolasyonla üretmez.
+Sipariş üst sınırı testten önceki son 364 günün en yüksek satışı.
+Eşit beklenen kârda en küçük miktar seçilir. Kantil çözümünü bütün miktarları
+tek tek deneyen mevcut karar motoruyla 36 birleşimde karşılaştırarak test ettik.
+Dayanak: MIT 2.854 Inventory, Newsvendor kritik oranı
+https://ocw.mit.edu/courses/2-854-introduction-to-manufacturing-systems-fall-2016/6c8fec8f99bcf7059b73b82e96d43901_MIT2_854F16_Inventory.pdf
+
+5. Adil karşılaştırma
+Tahmin kadar sipariş: aynı modelin tahmini yuvarlanır ve aynı üst sınıra alınır.
+Dağılımlı karar: aynı tahmin + ayrı geçmiş hata havuzu + maliyet oranı.
+Önceki dört kural: aynı ürün/test günleri, aynı maliyet ve alternatif sınırı;
+geçmiş satışın haftanın gününe göre dağılımını kullanmaya devam eder.
+Dolayısıyla yeni iki yaklaşımın bilgi işleme yöntemi farklıdır; gelecek
+bilgisine erişimi farklı değildir. Altı yaklaşım aynı gerçekleşen satışta ölçülür.
+İlk iki yaklaşım arasındaki fark, aynı tahminin maliyetle karar haline gelmesidir.
+
+6. Tek gün ileri düzeni
+Bugünün tahmininde dünün gerçekleşmiş satışı kullanılabilir. Modelin katsayıları,
+model seçimi ve hata havuzu test içinde sabittir. Bir önceki test günü sonraki
+gün için artık geçmiş bilgidir. Bu, 28 günü topluca tahmin etmek değildir.
+
+7. Sınırlamalar
+Artık tahmin karara bağlı, fakat koşullu gerçek talep dağılımını çözdük demiyoruz.
+Hata havuzu seri bağımlılığını ve dönem/günlere göre değişen varyansı modellemiyor.
+56 senaryo garantili %95 tahmin aralığı değildir. Sıfıra kırpma dağılımı etkiler.
+Satış talebin sansürlenmemiş ölçümü değil; maliyetler varsayım. Önceden incelenen
+aynı test dönemlerinde keşif amaçlı karşılaştırma; taze dış doğrulama yok.
+Sonuç iyileşebilir, eşit kalabilir veya kötüleşebilir; bütün sonuçlar gösterilir.
+
+8. Öğrenmen gereken ana bağlantı
+Geçmiş veriden tahmin → ayrı geçmişten tahmin hataları → satış senaryoları
+→ maliyetle beklenen kâr hesabı → sipariş → gerçekleşince değerlendirme.

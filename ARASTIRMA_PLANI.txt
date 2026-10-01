@@ -1,0 +1,62 @@
+KEŞKE — Kullanıcının kabul ettiği araştırma yönü
+Tarih: 1 Ekim 2026
+
+Gerçek satış geçmişi üzerinde, farklı maliyet varsayımları altında karar
+yöntemlerini karşılaştıran deney.
+
+Kullanıcı isteği: Önce veri yapısını anlamak; otokorelasyon, mevsimsellik,
+VIF, birim kök ve panel yapısını uygun oldukları yerde inceleyerek yöntem
+seçmek. Miuul örneklerindeki açıklamalı görev akışı korunacak.
+
+1. Veri seçimi ve denetim
+M5 indirildi; Zenodo arşivinin yayımladığı MD5 değerleri doğrulandı.
+İlk tanılar FOODS_3_090 / CA_1 için hesaplandı. Sonuçlar data/analysis/report.json.
+Tek ürün-mağaza: zaman serisi. Birden fazla ürün-mağaza ve zaman: panel.
+Dengeli/dengesiz panel, birimlerin gözlenen tarih aralıklarından belirlenir.
+Eksik kayıt, sıfır satış, satışa başlama ve stokta bulunmama ayrıştırılmalı.
+Satış miktarı gözlenir; karşılanmamış talep doğrudan gözlenmez.
+
+2. Zaman sırası korunarak eğitim/doğrulama/test ayrımı
+Senaryo sınırları, dönüşümler, olasılıklar ve model seçimleri yalnızca
+geçmiş eğitim verisinden öğrenilir. Test dönemi kararları etkileyemez.
+
+3. Eğitim dönemi tanısal inceleme
+Zaman grafiği, sıfır satış oranı, haftanın günü dağılımı; yeterli tarih varsa
+yıllık örüntü. ACF/PACF ile seri bağımlılığı; gerekirse STL ayrıştırması.
+ADF: sıfır hipotezi birim kök. KPSS: sıfır hipotezi durağanlık.
+Trend/sabit/gecikme seçimi kaydedilir. Tek p-değeri otomatik model seçmez.
+Gerekirse fark veya dönüşüm değerlendirilir; sıfır satışta log(0) alınmaz.
+
+4. Model karşılaştırma
+Mevsimsel naive başlangıç karşılaştırması. Yapıya göre ETS/SARIMA veya
+takvim ve gecikmeli satışlarla regresyon adayları. Bütün adaylar aynı
+geçmişe dayalı, ileri yürüyen doğrulama düzeninde karşılaştırılır.
+VIF yalnızca çok açıklayıcılı regresyon tasarım matrisi için kullanılır.
+Yüksek VIF otomatik değişken silme kuralı değildir; dummy referans kategorisi
+ve tam doğrusal bağımlılık ayrıca kontrol edilir.
+Panel veri kullanmak zorunlu olarak panel regresyon kullanmak demek değildir.
+Fiyat-satış ilişkisi tek başına nedensel fiyat esnekliği değildir.
+
+5. Karar katmanı
+Tahminin yalnızca ortalaması değil, olası sonuç dağılımı/senaryoları gerekir.
+Maximax, maximin, minimax pişmanlık ve beklenen değer aynı alternatifleri,
+aynı bilgi kümesini ve aynı gerçekleşen satışları kullanır.
+Maliyet/kalan değer varsayımları aralıklarla duyarlılık analizine alınır.
+Minimax yöntemleri senaryo uçlarına duyarlı olduğundan sınırlar açıklanır.
+MAE gibi tahmin ölçüleri yanında varsayımsal kâr, kalan ürün, karşılanamayan
+satış referansı ve kaçırılan kâr raporlanır. Gerçek talep diye sunulmaz.
+
+6. Bilgi satın alma daha sonra
+Bayes ve EVSI için sinyalin koşullu hata modeli gerekir. Bu model veriyle
+öğrenilemiyorsa eğitim amaçlı varsayım olarak açıkça belirtilir.
+
+İlk sonuç: 30.490 ürün-mağaza, 1.913 günlük dengeli gözlem ızgarası; boş satış
+hücresi yok. Bu, stok/erişilebilirlik panelinin dengeli olduğu anlamına gelmez.
+Seçilen seri: eğitim 1.857 gün; doğrulama 28 ve test 28 gün. ACF(1)=0,731,
+ACF(7)=0,624; haftalık STL gücü=0,295. Sabitli ADF p=0,00145 ve KPSS
+p=0,02513 birbirini tamamlayan ama basit durağanlık kararı vermeyen sonuçlar.
+Önceki 7 gün ortalamasının VIF'i 5,72. İlk üç adayda doğrulama ile seçilen
+regresyon test MAE=15,49 ürün; mevsimsel naive=18,71; 28 günlük ortalama=17,91.
+Geçmişteki sıfır satış blokları, dönem değişimleri, yıllık örüntü ve daha fazla
+üründe sağlamlık henüz araştırılmadı. Karar/kâr katmanı henüz gerçek satışa
+bağlanmadı; maliyet varsayımları sonraki aşama.

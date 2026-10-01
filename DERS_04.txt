@@ -1,0 +1,74 @@
+KEŞKE — Gerçek satışlarla karar deneyi
+
+Kod: karar_deneyi.py; hesaplanan sonuç: data/analysis/decision_experiment.json
+Çalıştırma sırası: karar_deneyi.py → publish_decisions.py → build.py
+
+1. Bugün neyi ekledik?
+Tahmin hatasıyla kâr farklı şeylerdir. Dört karar kuralını aynı 28 günlük
+satış referansında karşılaştırdık. Tahmin regresyonu bu ilk karar deneyine
+bağlı değil. Dağılımı doğrudan geçmiş gözlemlerin frekanslarından kuruyoruz.
+
+2. Hangi geçmişi kullanıyoruz?
+Eğitim döneminin son 364 günü = 52 tam hafta. Pazartesiyi geçmiş
+pazartesilerle karşılaştırıyoruz: her gün grubunda 52 gözlem.
+364 seçimi başlangıç tasarım parametresidir; en iyi pencere olduğu bulunmadı.
+Politikalar eğitim sonunda sabitlenir; doğrulama ve test satışları dağılıma
+katılmaz. Günler arası bağımlılığı bu ampirik yaklaşım bütünüyle modellemez.
+Seviye değişimi veya stok yokluğu kaynaklı sıfırlar sonucu etkileyebilir.
+
+3. Olasılıklar nereden geliyor?
+Örneğin aynı satış miktarı 52 geçmiş pazartesinin 4'ünde görülmüşse
+olasılık 4/52. Sıfır satışlar silinmez. Bunlar gerçek talep ölçümü değildir.
+Karar alternatifleri: 0'dan geçmiş pencerenin en yüksek satışına kadar bütün
+tam sayılar. Test satışlarının büyüklüğü alternatif sınırını değiştirmez.
+
+4. Maliyet parametreleri
+Fiyat=100 normalleştirilmiş para birimi. Gerçek M5 fiyatı veya TL değil.
+Maliyet/fiyat: %30, %50, %70, %90.
+Kalan ürün değeri/maliyet: %0, %25, %50.
+Örnek: maliyet oranı %50 ve kalan oranı %25 → p=100, c=50, s=12,5.
+Kâr = min(q,d)*p + max(q-d,0)*s - q*c.
+Gün sonunda kalan ürünün değeri alınır; ertesi güne stok taşınmaz.
+Sabit gider, ek stok yokluğu cezası, teslim süresi ve fiyat esnekliği yok.
+
+5. Kurallar
+Maximax: mümkün en iyi kârı en büyük yapan q.
+Maximin: mümkün en kötü kârı en büyük yapan q.
+Minimax pişmanlık: senaryolar içinde en büyük fırsat kaybını en küçük yapan q.
+Beklenen değer: geçmiş frekanslarıyla ağırlıklı kârı en büyük yapan q.
+Eşit optimumlar saklanır; uygulamada en düşük miktar kullanılır.
+Teknik dayanak: MIT Newsvendor Inventory Problem
+https://ocw.mit.edu/courses/15-772j-d-lab-supply-chains-fall-2014/resources/mit15_772jf14_newsboy/
+Beklenen değer için kritik oran (p-c)/(p-s) ile ampirik kantil ilişkisini
+ayrı bir örnekte test ediyoruz. Bu ilişki diğer üç kural için geçerli değildir.
+
+6. Senaryo uçları niye kontrol ediliyor?
+Tam destek: bütün gözlenen miktarlar.
+Kırpılmış destek: her gün grubunda %5/%95 kantillerini tam sayıya aşağı
+yuvarlayıp dış değerleri sınıra taşıyoruz; kayıt silmiyoruz. Olasılık kütlesi
+korunuyor. Bu seçenek bir güven aralığı veya otomatik aykırı değer temizliği
+değildir; uç senaryolara duyarlılık gösterir. 4×3×2=24 birleşim.
+
+7. Sonuç tablosu
+Ortalama sipariş: 28 günün ortalaması; günlük kararlar tam sayıdır.
+Kâr: 28 günlük varsayımsal kâr toplamı.
+Kalan: siparişin satış referansını aşan miktarı.
+Karşılanmayan referans: satış referansının siparişi aşan miktarı.
+Gerçekleşen pişmanlık: aynı alternatiflerde, satış bilinse ulaşılabilecek
+en iyi kâr ile gerçekleşen kâr farkı. Bu sonradan hesaplanan kıyas; kararın
+gelecekteki veriyi gördüğü anlamına gelmez.
+
+8. İlk varsayım birleşimindeki sonuç ne demek?
+Tam destek, c=50 ve s=12,5 altında: Maximax -38.387,5; Maximin 0;
+Minimax pişmanlık 27.800; Beklenen değer 56.937,5 normalleştirilmiş para birimi.
+Maximin sıfır satış senaryosunda zarardan kaçınmak için sıfır sipariş seçiyor.
+Bunlar tek ürün ve döneme ait sonuçlar. Beklenen değer her zaman kazanır
+sonucu çıkmaz; maliyet/senaryo kontrolleriyle karşılaştırma değişebilir.
+
+9. Doğruluk kontrolleri
+Test satışlarını değiştirsek bile politika ve alternatifler değişmemeli.
+Satılan = sipariş - kalan = satış referansı - karşılanmayan referans.
+Kâr + pişmanlık her kural için aynı kusursuz bilgi kıyasına eşit olmalı.
+Beklenen değer basit örnekte newsvendor kritik kantiliyle uyuşmalı.
+Bu kontroller kod doğruluğunu sınar; gerçek talep veya maliyet varsayımlarının
+işletmede doğru olduğunu kanıtlamaz.

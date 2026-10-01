@@ -1,0 +1,43 @@
+KEŞKE — Ders 2: Modeli Etkileşimli Deneye Çevirmek
+
+Önce karar, sonra talep: Talebi gördükten sonra miktarı değiştirmek farklı
+bir problemdir. Bu yüzden karar kilitlenir; yeniden başlatınca açılır.
+Üç yöntem ve kullanıcı aynı talep durumuyla karşılaşır. Ayrı ayrı talep
+çekmek karşılaştırmaya şans farkı eklerdi.
+
+Bu sürüm tek dönemlik bir karşılaştırmadır. Sürekli çalışan şirket,
+makine kapasitesi veya çok dönemli nakit simülasyonu değildir.
+
+Dosyalar:
+web/index.html: Semantik HTML. Başlıklar, form, radio seçenekleri, tablo.
+web/styles.css: Renk/boşluk düzeni, kartlar, mobil görünüm, hareket tercihi.
+web/decision-model.js: Hesaplama. Python modeliyle aynı formüller.
+web/app.js: Kullanıcı seçimi, ekran durumu ve model sonuçlarının gösterimi.
+web/test-model.mjs: Elle bilinen sonuçlarla JavaScript hesaplarını kontrol.
+
+HTML nedir? Ekrandaki içeriğin anlamlı yapısıdır.
+CSS nedir? Bu yapının görünümü ve farklı ekranlara uyumudur.
+JavaScript nedir? Kullanıcı eylemi sonrası hesap ve ekran güncellemesidir.
+Frontend bu üçünün tarayıcıda çalışan kısmıdır. Backend sunucudaki uygulama
+mantığıdır. Şu an buna ihtiyaç yok. Yerel HTTP sunucusu yalnızca dosyaları
+sunuyor; kararları sunucuda hesaplamıyor. React/TypeScript henüz kullanılmadı.
+
+Görsel temsil: Bir küçük kutu 10 üründür. Renkli kutular satılan ürünleri
+gösterir. Sabit miktarların hepsi 10'un katıdır. Bu temsil, modelin kendisi
+değildir. Miktarlar serbestleştirilirse görsel ölçek ayrıca ele alınmalıdır.
+
+Duyarlılık: Talep olasılıklarını %10/%20/%70 yapınca beklenen değer kuralı
+300 ürünü seçer. Kâr tablosu ve olasılıksız üç kural değişmez.
+
+Çalıştırma (web dizininde): python -m http.server 8765 --bind 127.0.0.1
+Adres: http://127.0.0.1:8765
+JavaScript model kontrolü: node test-model.mjs
+
+Kendi incelemen:
+1. 300 üretip düşük talebi aç. Kâr neden negatif?
+2. Maximin atölyesi yüksek talepte hangi kazancı kaçırıyor?
+3. Sonucu değiştiren şey bir animasyon mu, hesaplanan talep mi?
+
+Sonraki aşama: Kullanıcıya fiyat/maliyet/olasılık değişikliği açılmadan önce
+girdi doğrulamasını ve eşit skorlu kararların ekran davranışını geliştirmek.
+

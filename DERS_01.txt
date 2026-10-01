@@ -1,0 +1,53 @@
+KEŞKE — Ders 1: Kararı ve hesabı tanımlamak
+
+Bu dosyadaki bütün rakamlar eğitim amaçlı kurgusaldır.
+İlk model: Talep belli olmadan 100, 200 veya 300 ürün üretmek.
+Karar değişkeni q: Üretilecek miktar. Talep d: Karardan sonra ortaya çıkan durum.
+Üç talep durumu: 100, 200, 300; olasılıkları: %30, %40, %30.
+Fiyat: 60 TL/ürün. Maliyet: 30 TL/ürün. Kalan ürün değeri: 10 TL/ürün.
+
+Kâr = min(q,d)*60 + max(q-d,0)*10 - q*30
+Örnek: 200 üretip 100 satarsan 6000 + 1000 - 6000 = 1000 TL.
+Satılmayan ürünün değeri dönem sonunda tahsil ediliyor varsayılır.
+Sabit gider, borç, gecikme ve bir sonraki döneme stok devri henüz yoktur.
+Bu bir üretim miktarı modeli; makine yatırımı veya kapasite modeli değildir.
+
+Kâr tablosu (sütunlar talep 100 / 200 / 300):
+100 üret: 3000 / 3000 / 3000
+200 üret: 1000 / 6000 / 6000
+300 üret: -1000 / 4000 / 9000
+
+MAXIMAX: Her kararın en iyi sonucuna bak, en büyüğünü seç. 300 ürün.
+MAXIMIN: Her kararın en kötü sonucuna bak, bunların en büyüğünü seç. 100 ürün.
+MINIMAX PİŞMANLIK: Her talep durumunda ulaşılabilecek en iyi kârdan kendi
+kârını çıkar. Her kararın en büyük farkını bul; bu farkı en küçük olanı seç.
+Buradaki pişmanlık psikolojik ölçüm değil, kaçırılan kâr farkıdır. 200 ürün.
+BEKLENEN DEĞER: Sonuçları olasılıklarıyla ağırlıklandır. 200 ürün: 4500 TL.
+Bu 4500 TL tek bir oyunda elde edilecek kâr değildir; olasılıklı ortalamadır.
+
+EVPI: Talebi karar vermeden önce kesin bilseydik beklenen kâr 6000 TL olurdu.
+Bilgisiz en iyi beklenen kâr 4500 TL. Fark 1500 TL.
+Bu, kusursuz bilgi için risk nötr modelde ödenebilecek azami tutardır.
+Gerçek bir anket kusursuz bilgi vermez; onun için ayrıca EVSI hesaplanmalıdır.
+
+Bu aşamada ML/LLM veya optimizasyon çözücüsü yoktur. Üç alternatifi doğrudan
+karşılaştırmak yeterlidir. Gereksiz araç eklemiyoruz.
+Olasılıkları değiştirince beklenen değer değişir. İlk üç kural, olası durumlar
+kümesi aynı kaldıkça, olasılıklardan bağımsızdır.
+
+Geliştirme sırası:
+1. Hesabı elle ve otomatik kontrollerle doğrula (bu aşama).
+2. Tek dönemlik üç paralel işletme ekranı: aynı talep, farklı kararlar.
+3. Parametre kontrolü ve yöntem açıklamaları.
+4. Çok dönemli oyun için stok/nakit/durum geçişlerini ayrıca tanımla.
+
+Mimari plan: TypeScript + React arayüz, ayrı karar hesaplama modülü, CSS ile
+tasarım sistemi; responsive görünüm, klavye erişimi ve azaltılmış hareket.
+İlk sürüm hesapları tarayıcıda yapabilir; sunucuya ihtiyaç doğarsa backend
+eklenir. Python modeli arayüz uygulamasını karşılaştıracağımız referanstır.
+React dönüşümünde bu örneğin sonuçları aynı kalmalıdır.
+
+Kendi kontrolün: 300 üretip talep 200 olursa kâr kaç TL?
+Neden maximax ve maximin farklı miktarlar seçiyor?
+Kalan ürün değeri sıfırlanırsa düşük talepte hangi karar daha çok zarar görür?
+

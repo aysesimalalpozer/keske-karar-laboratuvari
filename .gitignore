@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+data/raw/
+data/analysis/*.csv
+data/analysis/*preview.png
+web/*preview.html
+*.zip
+release/

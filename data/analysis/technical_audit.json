@@ -1,0 +1,1408 @@
+{
+  "diagnostics": [
+    {
+      "item": "FOODS_1_001",
+      "store": "CA_1",
+      "period": 1,
+      "selected_model": "past_28_mean",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.05102040816326533,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.7895221386996616,
+      "ljung_box_p_14": 0.960997990720227,
+      "variance_shift_p": 0.3916462423779328,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_1_001",
+      "store": "CA_1",
+      "period": 2,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.03366546451796623,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.500979486136339,
+      "ljung_box_p_14": 0.7425804326921834,
+      "variance_shift_p": 0.35660317923425544,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_1_001",
+      "store": "CA_1",
+      "period": 3,
+      "selected_model": "past_28_mean",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.09438775510204081,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.05741476689377549,
+      "ljung_box_p_14": 0.020594713403647998,
+      "variance_shift_p": 0.9131469618656445,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_1_001",
+      "store": "TX_1",
+      "period": 1,
+      "selected_model": "past_28_mean",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.03443877551020412,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.9995451461635471,
+      "ljung_box_p_14": 0.999502600633896,
+      "variance_shift_p": 0.35414138589799027,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_1_001",
+      "store": "TX_1",
+      "period": 2,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.012344594012223693,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.17567901895831942,
+      "ljung_box_p_14": 0.6346182536001401,
+      "variance_shift_p": 0.1311643101509828,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_1_001",
+      "store": "TX_1",
+      "period": 3,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.1992696112633803,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.4827547494168277,
+      "ljung_box_p_14": 0.3521011550858934,
+      "variance_shift_p": 0.12338107303089463,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_1_001",
+      "store": "WI_1",
+      "period": 1,
+      "selected_model": "past_28_mean",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.031249999999999993,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.9671140395906038,
+      "ljung_box_p_14": 0.9897975375188843,
+      "variance_shift_p": 0.25601247868853316,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_1_001",
+      "store": "WI_1",
+      "period": 2,
+      "selected_model": "past_28_mean",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.07716836734693878,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.826964790095047,
+      "ljung_box_p_14": 0.3422265152851027,
+      "variance_shift_p": 0.28358618930361434,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_1_001",
+      "store": "WI_1",
+      "period": 3,
+      "selected_model": "seasonal_naive",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.0,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.14304621520940167,
+      "ljung_box_p_14": 0.20644516882036898,
+      "variance_shift_p": 0.02338444223964927,
+      "warnings": []
+    },
+    {
+      "item": "HOBBIES_1_001",
+      "store": "CA_1",
+      "period": 1,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.1802049683270693,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.41940929036103847,
+      "ljung_box_p_14": 0.6517237253672525,
+      "variance_shift_p": 0.8573690480488987,
+      "warnings": []
+    },
+    {
+      "item": "HOBBIES_1_001",
+      "store": "CA_1",
+      "period": 2,
+      "selected_model": "past_28_mean",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.10331632653061225,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.8886875540186242,
+      "ljung_box_p_14": 0.9758825925659528,
+      "variance_shift_p": 0.8982910537620064,
+      "warnings": []
+    },
+    {
+      "item": "HOBBIES_1_001",
+      "store": "CA_1",
+      "period": 3,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.37160030212817896,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.278118510787943,
+      "ljung_box_p_14": 0.7240617658500018,
+      "variance_shift_p": 0.5938497444765866,
+      "warnings": []
+    },
+    {
+      "item": "HOBBIES_1_001",
+      "store": "TX_1",
+      "period": 1,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.016548549348984466,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.5435274061174753,
+      "ljung_box_p_14": 0.755662851902127,
+      "variance_shift_p": 0.258704372188817,
+      "warnings": []
+    },
+    {
+      "item": "HOBBIES_1_001",
+      "store": "TX_1",
+      "period": 2,
+      "selected_model": "seasonal_naive",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.03571428571428571,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.16500060094116847,
+      "ljung_box_p_14": 0.0651166260573351,
+      "variance_shift_p": 0.3903078003419792,
+      "warnings": []
+    },
+    {
+      "item": "HOBBIES_1_001",
+      "store": "TX_1",
+      "period": 3,
+      "selected_model": "seasonal_naive",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.0,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.017200589519235927,
+      "ljung_box_p_14": 0.16615140329070827,
+      "variance_shift_p": 0.638560909053832,
+      "warnings": []
+    },
+    {
+      "item": "HOBBIES_1_001",
+      "store": "WI_1",
+      "period": 1,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.14893413735411806,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.9579077581756511,
+      "ljung_box_p_14": 0.9137020274589193,
+      "variance_shift_p": 0.5871346793132148,
+      "warnings": []
+    },
+    {
+      "item": "HOBBIES_1_001",
+      "store": "WI_1",
+      "period": 2,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.11835697493598749,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.7960484858796341,
+      "ljung_box_p_14": 0.8143646636123966,
+      "variance_shift_p": 0.47350434852546675,
+      "warnings": []
+    },
+    {
+      "item": "HOBBIES_1_001",
+      "store": "WI_1",
+      "period": 3,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.18406180977091738,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.8494179773883066,
+      "ljung_box_p_14": 0.7721626109424484,
+      "variance_shift_p": 0.9908687095164923,
+      "warnings": []
+    },
+    {
+      "item": "HOUSEHOLD_1_001",
+      "store": "CA_1",
+      "period": 1,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.1329894842372648,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.7852733492793667,
+      "ljung_box_p_14": 0.9614450904851041,
+      "variance_shift_p": 0.6110355862786878,
+      "warnings": []
+    },
+    {
+      "item": "HOUSEHOLD_1_001",
+      "store": "CA_1",
+      "period": 2,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.028538506409510136,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.6363757396699534,
+      "ljung_box_p_14": 0.8058608960117895,
+      "variance_shift_p": 0.5842055168851163,
+      "warnings": []
+    },
+    {
+      "item": "HOUSEHOLD_1_001",
+      "store": "CA_1",
+      "period": 3,
+      "selected_model": "past_28_mean",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.10650510204081631,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.11208773709566235,
+      "ljung_box_p_14": 0.1988664397739503,
+      "variance_shift_p": 0.33962267759812614,
+      "warnings": []
+    },
+    {
+      "item": "HOUSEHOLD_1_001",
+      "store": "TX_1",
+      "period": 1,
+      "selected_model": "seasonal_naive",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.03571428571428571,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.0008701700009986635,
+      "ljung_box_p_14": 0.017520785948219823,
+      "variance_shift_p": 0.06668969029760093,
+      "warnings": []
+    },
+    {
+      "item": "HOUSEHOLD_1_001",
+      "store": "TX_1",
+      "period": 2,
+      "selected_model": "seasonal_naive",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.017857142857142856,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.0004202480923887468,
+      "ljung_box_p_14": 0.00012031108571838915,
+      "variance_shift_p": 0.03177686687375971,
+      "warnings": []
+    },
+    {
+      "item": "HOUSEHOLD_1_001",
+      "store": "TX_1",
+      "period": 3,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.03978541791151007,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.8868853534559686,
+      "ljung_box_p_14": 0.9543887335526889,
+      "variance_shift_p": 0.7426335017232395,
+      "warnings": []
+    },
+    {
+      "item": "HOUSEHOLD_1_001",
+      "store": "WI_1",
+      "period": 1,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 0.062331416786479944,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.039487086687882575,
+      "ljung_box_p_14": 0.1727424773750556,
+      "variance_shift_p": 0.6790002770314916,
+      "warnings": []
+    },
+    {
+      "item": "HOUSEHOLD_1_001",
+      "store": "WI_1",
+      "period": 2,
+      "selected_model": "past_28_mean",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.0471938775510204,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.3346519899342318,
+      "ljung_box_p_14": 0.3648937713042147,
+      "variance_shift_p": 0.8965810341294862,
+      "warnings": []
+    },
+    {
+      "item": "HOUSEHOLD_1_001",
+      "store": "WI_1",
+      "period": 3,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -0.04325742321657876,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.13784056606749392,
+      "ljung_box_p_14": 0.16545187744709347,
+      "variance_shift_p": 0.34512315074165645,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_3_090",
+      "store": "CA_1",
+      "period": 1,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": -4.124141711924736,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.17262040993908329,
+      "ljung_box_p_14": 0.3422750492882302,
+      "variance_shift_p": 0.10005800409731436,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_3_090",
+      "store": "CA_1",
+      "period": 2,
+      "selected_model": "seasonal_naive",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 6.410714285714286,
+      "constant_errors": false,
+      "ljung_box_p_7": 4.0624579338197244e-05,
+      "ljung_box_p_14": 0.0023785631520479695,
+      "variance_shift_p": 0.19640930508287,
+      "warnings": []
+    },
+    {
+      "item": "FOODS_3_090",
+      "store": "CA_1",
+      "period": 3,
+      "selected_model": "lag_regression",
+      "training_rank": 10,
+      "training_columns": 10,
+      "mean_error": 1.896476467501161,
+      "constant_errors": false,
+      "ljung_box_p_7": 0.40559762466247,
+      "ljung_box_p_14": 0.1919751727206764,
+      "variance_shift_p": 0.9356032456063657,
+      "warnings": []
+    }
+  ],
+  "sensitivity": [
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0,
+      "higher": 14,
+      "equal": 7,
+      "lower": 9
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.25,
+      "higher": 18,
+      "equal": 3,
+      "lower": 9
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.5,
+      "higher": 22,
+      "equal": 1,
+      "lower": 7
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0,
+      "higher": 14,
+      "equal": 9,
+      "lower": 7
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.25,
+      "higher": 18,
+      "equal": 8,
+      "lower": 4
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.5,
+      "higher": 15,
+      "equal": 8,
+      "lower": 7
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0,
+      "higher": 24,
+      "equal": 5,
+      "lower": 1
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.25,
+      "higher": 21,
+      "equal": 6,
+      "lower": 3
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.5,
+      "higher": 16,
+      "equal": 9,
+      "lower": 5
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0,
+      "higher": 30,
+      "equal": 0,
+      "lower": 0
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.25,
+      "higher": 30,
+      "equal": 0,
+      "lower": 0
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 28,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.5,
+      "higher": 28,
+      "equal": 2,
+      "lower": 0
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0,
+      "higher": 12,
+      "equal": 9,
+      "lower": 9
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.25,
+      "higher": 14,
+      "equal": 7,
+      "lower": 9
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.5,
+      "higher": 24,
+      "equal": 1,
+      "lower": 5
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0,
+      "higher": 16,
+      "equal": 8,
+      "lower": 6
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.25,
+      "higher": 15,
+      "equal": 10,
+      "lower": 5
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.5,
+      "higher": 11,
+      "equal": 12,
+      "lower": 7
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0,
+      "higher": 21,
+      "equal": 6,
+      "lower": 3
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.25,
+      "higher": 20,
+      "equal": 7,
+      "lower": 3
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.5,
+      "higher": 17,
+      "equal": 9,
+      "lower": 4
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0,
+      "higher": 29,
+      "equal": 1,
+      "lower": 0
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.25,
+      "higher": 29,
+      "equal": 1,
+      "lower": 0
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 56,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.5,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0,
+      "higher": 9,
+      "equal": 12,
+      "lower": 9
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.25,
+      "higher": 15,
+      "equal": 8,
+      "lower": 7
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.5,
+      "higher": 21,
+      "equal": 2,
+      "lower": 7
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0,
+      "higher": 10,
+      "equal": 12,
+      "lower": 8
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.25,
+      "higher": 12,
+      "equal": 13,
+      "lower": 5
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.5,
+      "higher": 10,
+      "equal": 17,
+      "lower": 3
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0,
+      "higher": 20,
+      "equal": 9,
+      "lower": 1
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.25,
+      "higher": 19,
+      "equal": 9,
+      "lower": 2
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.5,
+      "higher": 14,
+      "equal": 9,
+      "lower": 7
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.25,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 182,
+      "calibration_days": 84,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.5,
+      "higher": 26,
+      "equal": 4,
+      "lower": 0
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0,
+      "higher": 16,
+      "equal": 8,
+      "lower": 6
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.25,
+      "higher": 16,
+      "equal": 5,
+      "lower": 9
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.5,
+      "higher": 26,
+      "equal": 1,
+      "lower": 3
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0,
+      "higher": 14,
+      "equal": 11,
+      "lower": 5
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.25,
+      "higher": 13,
+      "equal": 11,
+      "lower": 6
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.5,
+      "higher": 14,
+      "equal": 9,
+      "lower": 7
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0,
+      "higher": 21,
+      "equal": 7,
+      "lower": 2
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.25,
+      "higher": 18,
+      "equal": 9,
+      "lower": 3
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.5,
+      "higher": 15,
+      "equal": 10,
+      "lower": 5
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.25,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 28,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.5,
+      "higher": 25,
+      "equal": 5,
+      "lower": 0
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0,
+      "higher": 11,
+      "equal": 12,
+      "lower": 7
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.25,
+      "higher": 17,
+      "equal": 6,
+      "lower": 7
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.5,
+      "higher": 25,
+      "equal": 1,
+      "lower": 4
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0,
+      "higher": 13,
+      "equal": 12,
+      "lower": 5
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.25,
+      "higher": 13,
+      "equal": 10,
+      "lower": 7
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.5,
+      "higher": 10,
+      "equal": 10,
+      "lower": 10
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0,
+      "higher": 23,
+      "equal": 6,
+      "lower": 1
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.25,
+      "higher": 20,
+      "equal": 6,
+      "lower": 4
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.5,
+      "higher": 15,
+      "equal": 9,
+      "lower": 6
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0,
+      "higher": 29,
+      "equal": 1,
+      "lower": 0
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.25,
+      "higher": 29,
+      "equal": 1,
+      "lower": 0
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 56,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.5,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0,
+      "higher": 11,
+      "equal": 11,
+      "lower": 8
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.25,
+      "higher": 17,
+      "equal": 8,
+      "lower": 5
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.5,
+      "higher": 26,
+      "equal": 2,
+      "lower": 2
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0,
+      "higher": 8,
+      "equal": 13,
+      "lower": 9
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.25,
+      "higher": 10,
+      "equal": 14,
+      "lower": 6
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.5,
+      "higher": 12,
+      "equal": 14,
+      "lower": 4
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0,
+      "higher": 18,
+      "equal": 10,
+      "lower": 2
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.25,
+      "higher": 17,
+      "equal": 10,
+      "lower": 3
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.5,
+      "higher": 9,
+      "equal": 12,
+      "lower": 9
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0,
+      "higher": 25,
+      "equal": 4,
+      "lower": 1
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.25,
+      "higher": 25,
+      "equal": 4,
+      "lower": 1
+    },
+    {
+      "training_days": 364,
+      "calibration_days": 84,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.5,
+      "higher": 24,
+      "equal": 5,
+      "lower": 1
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0,
+      "higher": 12,
+      "equal": 9,
+      "lower": 9
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.25,
+      "higher": 14,
+      "equal": 6,
+      "lower": 10
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.5,
+      "higher": 26,
+      "equal": 1,
+      "lower": 3
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0,
+      "higher": 12,
+      "equal": 13,
+      "lower": 5
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.25,
+      "higher": 11,
+      "equal": 12,
+      "lower": 7
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.5,
+      "higher": 10,
+      "equal": 11,
+      "lower": 9
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0,
+      "higher": 21,
+      "equal": 7,
+      "lower": 2
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.25,
+      "higher": 17,
+      "equal": 10,
+      "lower": 3
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.5,
+      "higher": 14,
+      "equal": 11,
+      "lower": 5
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.25,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 28,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.5,
+      "higher": 25,
+      "equal": 5,
+      "lower": 0
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0,
+      "higher": 12,
+      "equal": 10,
+      "lower": 8
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.25,
+      "higher": 17,
+      "equal": 8,
+      "lower": 5
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.5,
+      "higher": 26,
+      "equal": 1,
+      "lower": 3
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0,
+      "higher": 13,
+      "equal": 11,
+      "lower": 6
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.25,
+      "higher": 14,
+      "equal": 11,
+      "lower": 5
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.5,
+      "higher": 10,
+      "equal": 9,
+      "lower": 11
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0,
+      "higher": 19,
+      "equal": 8,
+      "lower": 3
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.25,
+      "higher": 18,
+      "equal": 8,
+      "lower": 4
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.5,
+      "higher": 13,
+      "equal": 10,
+      "lower": 7
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.25,
+      "higher": 27,
+      "equal": 3,
+      "lower": 0
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 56,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.5,
+      "higher": 25,
+      "equal": 5,
+      "lower": 0
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0,
+      "higher": 11,
+      "equal": 12,
+      "lower": 7
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.25,
+      "higher": 18,
+      "equal": 8,
+      "lower": 4
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.3,
+      "salvage_ratio": 0.5,
+      "higher": 26,
+      "equal": 2,
+      "lower": 2
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0,
+      "higher": 10,
+      "equal": 14,
+      "lower": 6
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.25,
+      "higher": 10,
+      "equal": 14,
+      "lower": 6
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.5,
+      "salvage_ratio": 0.5,
+      "higher": 11,
+      "equal": 15,
+      "lower": 4
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0,
+      "higher": 19,
+      "equal": 9,
+      "lower": 2
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.25,
+      "higher": 16,
+      "equal": 10,
+      "lower": 4
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.7,
+      "salvage_ratio": 0.5,
+      "higher": 11,
+      "equal": 12,
+      "lower": 7
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0,
+      "higher": 25,
+      "equal": 4,
+      "lower": 1
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.25,
+      "higher": 25,
+      "equal": 4,
+      "lower": 1
+    },
+    {
+      "training_days": 728,
+      "calibration_days": 84,
+      "cost_ratio": 0.9,
+      "salvage_ratio": 0.5,
+      "higher": 24,
+      "equal": 5,
+      "lower": 1
+    }
+  ],
+  "case_count": 30,
+  "window_pairs": 9,
+  "comparison_count": 3240,
+  "notes": [
+    "Ljung-Box tests calibration forecast errors, not raw sales.",
+    "model_df=0: frozen model fitted in preceding disjoint training block; nominal screening p-values.",
+    "Levene/Brown-Forsythe compares first/second calibration halves; dependence affects its nominal p-value.",
+    "No multiple-testing correction or proof of independent identically distributed errors.",
+    "Sensitivity is exploratory, not hyperparameter tuning or external validation."
+  ]
+}

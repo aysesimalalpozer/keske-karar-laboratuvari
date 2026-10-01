@@ -1,0 +1,74 @@
+KEŞKE — Bir sonuç başka ürün ve dönemlerde tekrarlanıyor mu?
+
+Kod: saglamlik_deneyi.py
+Rapor: data/analysis/robustness_report.json
+Siteye aktarma: publish_robustness.py → build.py
+
+1. Neden bu aşamayı yaptık?
+İlk üründe beklenen değer daha yüksek kâr verdi. Tek ürün ve tek dönem
+bir yöntemin genel olarak en iyi olduğunu söylemek için yeterli değil.
+Bu kez farklı ürünleri ve takvim dönemlerini aynı protokolle karşılaştırdık.
+
+2. Ürün seçimi
+FOODS_1_001, HOBBIES_1_001, HOUSEHOLD_1_001 ürünleri × CA_1, TX_1, WI_1
+mağazaları = 9 çift. İlk deneydeki FOODS_3_090 / CA_1 ile 10 çift.
+Bu liste analiz yapılmadan kimliklerle sabitlendi. İyi sonuç veren ürünleri
+ayıklamadık. Seçim rastgele veya temsili değil; bütün Walmart ürünlerine
+genellenemez. Anonim kodlardan gerçek ürün adı çıkaramayız.
+
+3. Zaman tasarımı
+Son 84 gün, art arda üç 28 günlük test dönemi.
+Her dönemin öncesindeki 364 gün dağılımı kurmak için kullanılır.
+Her blok başında kurallar yeniden hesaplanır; blok içinde güncellenmez.
+Sonraki blokta önceki test satışları geçmiş bilgi haline geldiği için
+kullanılabilir. O blok veya daha sonraki günler geçmişe sızamaz.
+Bu bir ileri yürüyen geriye dönük değerlendirmedir.
+
+4. Kaç deney?
+10 çift × 3 dönem = 30 ürün-dönem.
+Her birinde 4 maliyet oranı × 3 kalan değer oranı × 2 senaryo desteği = 24.
+30 × 24 = 720 karşılaştırma; her karşılaştırmada dört kural.
+Bu, 720 bağımsız istatistiksel kanıt demek değildir: tarihler aynı ve
+eğitim pencereleri örtüşüyor. Burada güven aralığı/p-değeri hesaplamıyoruz.
+
+5. Farklı satış hacimlerini nasıl karşılaştırdık?
+Her ürün-dönemde referans gelir = satış adedi toplamı × 100.
+Kâr/referans gelir ve pişmanlık/referans gelir ayrı ayrı hesaplanır.
+Sonra 30 denemenin oranları eşit ağırlıkla ortalanır. Böylece ilk yüksek
+hacimli ürün diğer bütün ürünleri gölgelemez. Bu oran işletmenin gerçek
+kâr marjı değildir: fiyat varsayımsaldır ve referans satışları kullanır.
+Az satışlı ürünlerde oran çok büyük negatif olabilir. Bu hata değil,
+küçük paydayla birlikte yüksek fazla sipariş zararının etkisidir.
+Sıfır toplam satış varsa oran tanımsızdır; sıfır diye yazmayız, ortalamadan
+çıkarıp kullanılan deneme sayısını raporda saklarız.
+
+6. Birincilik nasıl sayılıyor?
+Her ürün-dönemde aynı maliyetler altında gerçekleşen toplam kâr kıyaslanır.
+Tek başına birincilik ve eşit birincilik ayrı gösterilir.
+Metindeki toplam birincilik payında iki eşit kazanan varsa her birine 0,5;
+dört eşit kazanan varsa her birine 0,25 verilir. Bütün payların toplamı
+30'dur. Bu sıralama test sonucudur; model seçimi veya gelecek garantisi değil.
+
+7. İlk varsayım birleşimindeki bulgu
+Maliyet/fiyat=%50; kalan değer/maliyet=%25; tam senaryo desteği.
+Beklenen değer: 13 tek başına + 13 eşit birincilik; 4 zarar edilen deneme.
+Maximin: 3 tek başına + 13 eşit birincilik; 0 zarar edilen deneme.
+Minimax pişmanlık: 1 tek başına birincilik; 24 zarar edilen deneme.
+Maximax: birincilik yok; 30 denemede zarar.
+Eşit birincilikler çifte sayıldığından tek ve eşit sayılar toplamı 30'u aşabilir.
+Maximin sıfır siparişle sıfır kârda kalabiliyor; zarar etmemek satışları
+karşılamak veya işletmeyi sürdürebilmek ile aynı hedef değil.
+
+8. Sınırlamalar ve dürüst yorum
+İlk ürünün son test sonucunu zaten görmüştük. Bu genişletme keşif amaçlı;
+tamamen yeni ve önceden hiç görülmemiş doğrulama diye sunmuyoruz.
+Maliyetler varsayım; satışlar stok yokluğunda kaybedilmiş talebi göstermiyor.
+52 haftalık pencere ve kantil sınırları optimize edilmedi. Ürün seçimi
+temsili değil. Sonuçları gördükten sonra ayarları seçip aynı testte
+başarı kanıtı diye kullanamayız. Regresyon tahmini hâlâ karara bağlı değil.
+
+9. Kontroller
+Gelecekteki satışlar değiştirilince sipariş politikası ve alternatif sınırı
+değişmiyor. Eğitim/test tarihleri kesişmiyor. Sıfır satışta oran tanımsız.
+Eşit birincilik payları deneme sayısına toplamlanıyor. Eşit ağırlıklı oranlar
+gerçekten ürün-dönem bazında ortalanıyor. Eksik eğitim penceresi reddediliyor.
